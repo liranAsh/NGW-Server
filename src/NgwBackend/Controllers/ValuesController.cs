@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace NgwBackend.Controllers
 {
@@ -11,9 +12,23 @@ namespace NgwBackend.Controllers
     {
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public JArray Get()
         {
-            return new string[] { "value1", "value2" };
+            JObject x =new JObject();
+            x["operationName"] = "Liran - Server";
+            x["date"] = "23/2/2015";
+
+            JObject y = new JObject();
+            y["operationName"] = "Ziv - Server";
+            y["date"] = "23/2/2015";
+
+            JArray result = new JArray();
+
+            result.Add(x);
+            result.Add(y);
+
+            return result;
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5

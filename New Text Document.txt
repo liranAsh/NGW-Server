@@ -1,3 +1,0 @@
-.vs
-artifacts
-node_modules
