@@ -1,4 +1,0 @@
-.vs
-artifacts
-node_modules
-src/NgwBackend/project.lock.json

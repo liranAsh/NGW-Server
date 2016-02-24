@@ -4,6 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Newtonsoft.Json.Linq;
+using NgwBackend.Models.Utilities;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using Newtonsoft.Json;
 
 namespace NgwBackend.Controllers
 {
@@ -14,7 +18,7 @@ namespace NgwBackend.Controllers
         [HttpGet]
         public JArray Get()
         {
-            JObject x =new JObject();
+            /* JObject x =new JObject();
             x["operationName"] = "Liran - Server";
             x["date"] = "23/2/2015";
 
@@ -29,6 +33,15 @@ namespace NgwBackend.Controllers
 
             return result;
             //return new string[] { "value1", "value2" };
+            */
+            
+            IMongoCollection<BsonDocument> collection = Dal.getInstance().GetCollection("Persons");
+            var resultBson = collection.Find(new BsonDocument()).ToList();
+
+            string stringJson = BsonExtensionMethods.ToJson(resultBson);
+            JArray json = JsonConvert.DeserializeObject<JArray>(stringJson);
+
+            return json;
         }
 
         // GET api/values/5

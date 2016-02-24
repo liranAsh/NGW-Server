@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using NgwBackend.Models.Utilities;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Newtonsoft.Json.Linq;
 
 namespace NgwBackend
 {
@@ -57,11 +58,7 @@ namespace NgwBackend
             app.UseStaticFiles();
 
             app.UseMvc();
-
-            IMongoCollection<BsonDocument> collection = Dal.getInstance().GetCollection("Persons");
-
-            
-
+            JObject s;
         }
 
         // Entry point for the application.
