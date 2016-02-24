@@ -18,17 +18,18 @@
   },
 
   "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel",
+    "web": "Microsoft.AspNet.Server.Kestrel"
   },
 
   "frameworks": {
     "dnx451": {
       "dependencies": {
-        "MongoDB.Bson": "2.2.3",
-        "MongoDB.Driver": "2.2.3"
+        "mongocsharpdriver": "2.2.3",
+        "MongoDB.Bson": "1.0.0-*",
+        "MongoDB.Driver": "1.0.0-*",
+        "MongoDB.Driver.Core": "1.0.0-*"
       }
-    },
-    "dnxcore50": { }
+    }
   },
 
   "exclude": [

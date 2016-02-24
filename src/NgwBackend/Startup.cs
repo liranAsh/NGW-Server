@@ -7,6 +7,9 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NgwBackend.Models.Utilities;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace NgwBackend
 {
@@ -54,6 +57,11 @@ namespace NgwBackend
             app.UseStaticFiles();
 
             app.UseMvc();
+
+            IMongoCollection<BsonDocument> collection = Dal.getInstance().GetCollection("Persons");
+
+            
+
         }
 
         // Entry point for the application.
